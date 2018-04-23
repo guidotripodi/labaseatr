@@ -1,1 +1,38 @@
-DESCRIPCION!
+Se solicitó la creación de una base de datos en donde una empresa denominada “Entretenimiento Completo S.A.” (ECSA), provee tarjetas de acceso
+personalizadas a un grupo de parques de diversiones en todo el mundo así como
+también a eventos especiales.\\
+El mecanismo utilizado es de post-pago: usando dicha tarjeta, el titular de la misma puede acceder a las diversas atracciones de los parques de diversiones o a los eventos especiales.\\
+A fin de mes el titular de la tarjeta recibe una factura con el detalle. El importe es debitado de su medio de pago. La factura es enviada al domicilio de facturación del cliente. Una vez debitado el pago.\\
+Cada tarjeta es personal, ya que lleva además de los datos del titular de la
+misma y una foto. En caso de extravío la tarjeta deberá ser desactivada y en su
+lugar se le entregará otra. No puede haber dos tarjetas activas para un mismo
+cliente. Se guardan los datos personales de los clientes, como dirección, telefonos, nombre y apellido, etc. En tiempo real, la empresa ECSA informa a los parques de diversiones y a los organizadores de eventos las tarjetas entregadas para que éstos puedan verificar en sus sistemas el ingreso a las atracciones.
+Las tarjetas poseen una categoría que permite a las empresas realizar algún descuento. \\
+El cambio de categoría se produce luego de haber gastado una cantidad de dinero predeterminada en el año.  El ascenso de categoría dura un año, si después de ese año no se mantiene un promedio Y de gasto mensual entonces se baja de categoría. Los parámetros X e Y dependen de la categoría.\\
+Los parques y los eventos tienen un nombre y una ubicación (dirección),y el
+precio de acceso a los mismos. Este precio es diario. Los eventos tienen además
+un rango de fechas y son desarrollados por una empresa organizadora.\\
+
+Se solicito que:\\
+
+%\begin{itemize}
+%\item Los titulares de las tarjetas puedan consultar en qué parques y que atracciones pueden ingresar y el descuento según su categoría.
+%\item Se pueda chequear las facturas impagas hasta un momento dado
+%\end{itemize}
+
+Ademas, es necesario que nuestra base de datos pueda responder a las siguientes consultas:\\
+
+\begin{itemize}
+\item Estadísticas: atracción que más facturó, parque que más facturó, atracción
+que más facturó por parque.
+\item Listado de facturas adeudadas
+\item Para cada cliente las atracciones más visitadas en rango de fechas
+\item Cambios de categorías de cliente en rango de fechas
+\item Atracciones con descuento para cada categoría.
+\item Empresa organizadora de eventos que tuvo mayor facturación.
+\item Desarrollar un procedimiento almacenado que verifique las categorías y real-
+ice el cambio de la misma si es necesario.
+\item Ranking de parques/atracciones con mayor cantidad de visitas en rango de
+fechas.
+
+\end{itemize}
