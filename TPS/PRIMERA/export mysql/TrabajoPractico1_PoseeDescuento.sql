@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: TrabajoPractico1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,26 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Atraccion`
+-- Table structure for table `PoseeDescuento`
 --
 
-DROP TABLE IF EXISTS `Atraccion`;
+DROP TABLE IF EXISTS `PoseeDescuento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Atraccion` (
+CREATE TABLE `PoseeDescuento` (
+  `idCategoria` int(11) DEFAULT NULL,
   `idProducto` int(11) DEFAULT NULL,
-  `edadDesde` int(11) DEFAULT NULL,
-  `edadHasta` int(11) DEFAULT NULL
+  `descuento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Atraccion`
+-- Dumping data for table `PoseeDescuento`
 --
 
-LOCK TABLES `Atraccion` WRITE;
-/*!40000 ALTER TABLE `Atraccion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Atraccion` ENABLE KEYS */;
+LOCK TABLES `PoseeDescuento` WRITE;
+/*!40000 ALTER TABLE `PoseeDescuento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `PoseeDescuento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-25  0:21:06
+-- Dump completed on 2018-04-29 19:05:48

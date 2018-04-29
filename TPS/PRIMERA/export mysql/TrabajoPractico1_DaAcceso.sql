@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: TrabajoPractico1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Tarjeta`
+-- Table structure for table `DaAcceso`
 --
 
-DROP TABLE IF EXISTS `Tarjeta`;
+DROP TABLE IF EXISTS `DaAcceso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Tarjeta` (
+CREATE TABLE `DaAcceso` (
   `idTarjeta` int(11) DEFAULT NULL,
-  `idCliente` int(11) DEFAULT NULL,
-  `activada` longtext,
-  `foto` longtext
+  `idProducto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Tarjeta`
+-- Dumping data for table `DaAcceso`
 --
 
-LOCK TABLES `Tarjeta` WRITE;
-/*!40000 ALTER TABLE `Tarjeta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Tarjeta` ENABLE KEYS */;
+LOCK TABLES `DaAcceso` WRITE;
+/*!40000 ALTER TABLE `DaAcceso` DISABLE KEYS */;
+INSERT INTO `DaAcceso` VALUES (1,1);
+/*!40000 ALTER TABLE `DaAcceso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-25  0:21:06
+-- Dump completed on 2018-04-29 19:05:48

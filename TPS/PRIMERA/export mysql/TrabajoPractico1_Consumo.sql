@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: TrabajoPractico1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `RECIBO`
+-- Table structure for table `Consumo`
 --
 
-DROP TABLE IF EXISTS `RECIBO`;
+DROP TABLE IF EXISTS `Consumo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `RECIBO` (
-  `idRecibo` int(11) DEFAULT NULL,
-  `tipoFact` longtext,
-  `tipoRecibo` longtext,
-  `numFact` int(11) DEFAULT NULL,
-  `numRecibo` int(11) DEFAULT NULL,
-  `precioPagado` int(11) DEFAULT NULL
+CREATE TABLE `Consumo` (
+  `idConsumo` int(11) DEFAULT NULL,
+  `idProducto` int(11) DEFAULT NULL,
+  `fechaYhora` longtext,
+  `importe` int(11) DEFAULT NULL,
+  `idTarjeta` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `RECIBO`
+-- Dumping data for table `Consumo`
 --
 
-LOCK TABLES `RECIBO` WRITE;
-/*!40000 ALTER TABLE `RECIBO` DISABLE KEYS */;
-/*!40000 ALTER TABLE `RECIBO` ENABLE KEYS */;
+LOCK TABLES `Consumo` WRITE;
+/*!40000 ALTER TABLE `Consumo` DISABLE KEYS */;
+INSERT INTO `Consumo` VALUES (1,1,'10/03/2018',20,1);
+/*!40000 ALTER TABLE `Consumo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-23 18:54:46
+-- Dump completed on 2018-04-29 19:05:48

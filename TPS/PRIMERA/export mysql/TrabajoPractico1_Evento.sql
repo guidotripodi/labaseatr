@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: TrabajoPractico1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `CLIENTE`
+-- Table structure for table `Evento`
 --
 
-DROP TABLE IF EXISTS `CLIENTE`;
+DROP TABLE IF EXISTS `Evento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `CLIENTE` (
-  `idCliente` int(11) DEFAULT NULL,
-  `Nombre` longtext,
-  `Apellido` longtext,
-  `DomicilioFacturacion` longtext
+CREATE TABLE `Evento` (
+  `idProducto` int(11) DEFAULT NULL,
+  `fechaDesde` longtext,
+  `fechaHasta` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `CLIENTE`
+-- Dumping data for table `Evento`
 --
 
-LOCK TABLES `CLIENTE` WRITE;
-/*!40000 ALTER TABLE `CLIENTE` DISABLE KEYS */;
-/*!40000 ALTER TABLE `CLIENTE` ENABLE KEYS */;
+LOCK TABLES `Evento` WRITE;
+/*!40000 ALTER TABLE `Evento` DISABLE KEYS */;
+INSERT INTO `Evento` VALUES (1,'2010','2020'),(2,'2017','2020');
+/*!40000 ALTER TABLE `Evento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-23 18:54:46
+-- Dump completed on 2018-04-29 19:05:48

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
--- Host: localhost    Database: sys
+-- Host: localhost    Database: TrabajoPractico1
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,29 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sys_config`
+-- Table structure for table `Atraccion`
 --
 
-DROP TABLE IF EXISTS `sys_config`;
+DROP TABLE IF EXISTS `Atraccion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sys_config` (
-  `variable` varchar(128) NOT NULL,
-  `value` varchar(128) DEFAULT NULL,
-  `set_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `set_by` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`variable`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `Atraccion` (
+  `idProducto` int(11) DEFAULT NULL,
+  `edadDesde` int(11) DEFAULT NULL,
+  `edadHasta` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sys_config`
+-- Dumping data for table `Atraccion`
 --
 
-LOCK TABLES `sys_config` WRITE;
-/*!40000 ALTER TABLE `sys_config` DISABLE KEYS */;
-INSERT INTO `sys_config` VALUES ('diagnostics.allow_i_s_tables','OFF','2018-04-08 15:18:30',NULL),('diagnostics.include_raw','OFF','2018-04-08 15:18:30',NULL),('ps_thread_trx_info.max_length','65535','2018-04-08 15:18:30',NULL),('statement_performance_analyzer.limit','100','2018-04-08 15:18:30',NULL),('statement_performance_analyzer.view',NULL,'2018-04-08 15:18:30',NULL),('statement_truncate_len','64','2018-04-08 15:18:30',NULL);
-/*!40000 ALTER TABLE `sys_config` ENABLE KEYS */;
+LOCK TABLES `Atraccion` WRITE;
+/*!40000 ALTER TABLE `Atraccion` DISABLE KEYS */;
+INSERT INTO `Atraccion` VALUES (1,0,9999);
+/*!40000 ALTER TABLE `Atraccion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-23 18:54:45
+-- Dump completed on 2018-04-29 19:05:49
