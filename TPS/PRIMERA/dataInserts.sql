@@ -251,13 +251,6 @@ INSERT INTO `Precio` (`idProducto`, `diaSemana`, `valor`) VALUES (23, 'J', 51);
 INSERT INTO `Precio` (`idProducto`, `diaSemana`, `valor`) VALUES (23, 'V', 61);
 INSERT INTO `Precio` (`idProducto`, `diaSemana`, `valor`) VALUES (23, 'S', 71);
 
-
-
-
-
-
-
-
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (0, '156546-54651');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (0, '4529854-58458');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (1, '54-654654-64568');
@@ -277,5 +270,22 @@ INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (8, '214674-89774');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '1564-654');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '455241651');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '54654564');
+
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (1,'2018-04-01 00:00:00','2018-04-25 00:00:00',1,1);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-04-25 00:00:00','2018-05-05 00:00:00',2,2);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-04-20 00:00:00','2018-04-28 00:00:00',3,3);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-04-02 00:00:00','2018-04-22 00:00:00',4,4);
+
+INSERT INTO `Recibo` (`fecha`, `idFactura`) VALUES ('2018-04-25 00:00:00',1);
+
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',1,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',2,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',3,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',4,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',5,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',6,50);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Platinium',3,10);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',1,10);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',2,50);
 
 
