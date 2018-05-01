@@ -47,7 +47,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Telefono` (
   `idCliente` INT NOT NULL,
-  `numero` INT NOT NULL,
+  `numero` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`, `numero`),
   CONSTRAINT `idCliente`
     FOREIGN KEY (`idCliente`)
@@ -58,31 +58,14 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Categoria`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Categoria` (
-  `nombreCategoria` VARCHAR(45) NOT NULL,
-  `x` DECIMAL NULL,
-  `y` DECIMAL NULL,
-  PRIMARY KEY (`nombreCategoria`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Tarjeta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Tarjeta` (
   `idTarjeta` INT NOT NULL,
   `activada` TINYINT(1) NOT NULL,
   `foto` VARCHAR(45) NULL,
-  `nombreCategoria` VARCHAR(45) NOT NULL,
   `idCliente` INT NOT NULL,
   PRIMARY KEY (`idTarjeta`),
-  CONSTRAINT `fk_Tarjeta_Categoria1`
-    FOREIGN KEY (`nombreCategoria`)
-    REFERENCES `mydb`.`Categoria` (`nombreCategoria`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Tarjeta_Cliente1`
     FOREIGN KEY (`idCliente`)
     REFERENCES `mydb`.`Cliente` (`idCliente`)
@@ -188,6 +171,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `mydb`.`Categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Categoria` (
+  `nombreCategoria` VARCHAR(45) NOT NULL,
+  `x` DECIMAL NULL,
+  `y` DECIMAL NULL,
+  PRIMARY KEY (`nombreCategoria`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`Parque`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Parque` (
@@ -275,6 +269,27 @@ CREATE TABLE IF NOT EXISTS `mydb`.`PoseeDescuento` (
   CONSTRAINT `idProducto`
     FOREIGN KEY (`idProducto`)
     REFERENCES `mydb`.`Producto` (`idProducto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`perteneceA`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`perteneceA` (
+  `idTarjeta` INT NOT NULL,
+  `nombreCategoria` VARCHAR(45) NOT NULL,
+  `fechaDesde` DATE NOT NULL,
+  PRIMARY KEY (`idTarjeta`, `nombreCategoria`),
+  CONSTRAINT `fk_Tarjeta_has_Categoria_Tarjeta1`
+    FOREIGN KEY (`idTarjeta`)
+    REFERENCES `mydb`.`Tarjeta` (`idTarjeta`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Tarjeta_has_Categoria_Categoria1`
+    FOREIGN KEY (`nombreCategoria`)
+    REFERENCES `mydb`.`Categoria` (`nombreCategoria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
