@@ -1,5 +1,4 @@
-USE mydb;
-
+use mydb;
 INSERT INTO `MedioDePago` (`nombreMedioDePago`) VALUES ('Credito');
 INSERT INTO `MedioDePago` (`nombreMedioDePago`) VALUES ('Debito');
 INSERT INTO `MedioDePago` (`nombreMedioDePago`) VALUES ('Transferencia');
@@ -271,10 +270,109 @@ INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '1564-654');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '455241651');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '54654564');
 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (0, true, 'dummy picture', 1); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (1, false, 'dummy picture', 1); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (2, true, 'dummy picture', 2); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (3, false, 'dummy picture', 2); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (4, true, 'dummy picture', 3); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (5, false, 'dummy picture', 3); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (6, true, 'dummy picture', 4); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (7, false, 'dummy picture', 4);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,0);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,1);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,2);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,3);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,4);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,5);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,6);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,7);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,8);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,9);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (0 ,10);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,11);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,12);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,13);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,14);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,15);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,16);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,17);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,18);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,19);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (1 ,20);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,5);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,6);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,7);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,8);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,9);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,10);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,11);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,12);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,13);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,14);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (2 ,15);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,15);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,16);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,17);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,18);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,19);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,20);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,21);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,22);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (3 ,23);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,0);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,1);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,2);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,3);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,4);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,5);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,6);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,7);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,8);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,9);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (4 ,10);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,11);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,12);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,13);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,14);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,15);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,16);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,17);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,18);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,19);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (5 ,20);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,5);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,6);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,7);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,8);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,9);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,10);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,11);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,12);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,13);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,14);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (6 ,15);
+
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,15);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,16);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,17);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,18);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,19);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,20);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,21);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,22);
+INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,23);
+
 INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (1,'2018-04-01 00:00:00','2018-04-25 00:00:00',1,1);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-04-25 00:00:00','2018-05-05 00:00:00',2,2);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-04-20 00:00:00','2018-04-28 00:00:00',3,3);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-04-02 00:00:00','2018-04-22 00:00:00',4,4);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-05-25 00:00:00','2018-05-05 00:00:00',2,2);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-06-20 00:00:00','2018-04-28 00:00:00',3,3);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-07-02 00:00:00','2018-04-22 00:00:00',4,4);
 
 INSERT INTO `Recibo` (`fecha`, `idFactura`) VALUES ('2018-04-25 00:00:00',1);
 
@@ -284,8 +382,31 @@ INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALU
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',4,50);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',5,50);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',6,50);
-INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Platinium',3,10);
+INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Diamond',3,10);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',1,10);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',2,50);
 
 
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 15);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 22);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 21);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 16);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 17);
+
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 11);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 12);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 13);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 14);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 15);
+
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 5);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 6);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 7);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 8);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 9);
+
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 1);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 2);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 3);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 4);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 5);
