@@ -369,10 +369,18 @@ INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,21);
 INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,22);
 INSERT INTO `DaAcceso` (`idTarjeta` , `idProducto`) VALUES (7 ,23);
 
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (1,'2018-04-01 00:00:00','2018-04-25 00:00:00',1,1);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-05-25 00:00:00','2018-05-05 00:00:00',2,2);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-06-20 00:00:00','2018-04-28 00:00:00',3,3);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-07-02 00:00:00','2018-04-22 00:00:00',4,4);
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (1, 'Silver','2017-12-30 00:00:00');
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (1, 'Black','2016-12-30 00:00:00');
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (2, 'Silver','2017-12-30 00:00:00');
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (3, 'Silver','2017-12-30 00:00:00');
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (4, 'Silver','2017-12-30 00:00:00');
+INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (0, 'Silver','2017-12-30 00:00:00');
+
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (1,'2018-03-01 00:00:00','2018-04-25 00:00:00',1,1);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-04-01 00:00:00','2018-04-25 00:00:00',1,1);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-05-25 00:00:00','2018-05-05 00:00:00',2,2);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-06-20 00:00:00','2018-04-28 00:00:00',3,3);
+INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (5,'2018-07-02 00:00:00','2018-04-22 00:00:00',4,4);
 
 INSERT INTO `Recibo` (`fecha`, `idFactura`) VALUES ('2018-04-25 00:00:00',1);
 
@@ -386,27 +394,32 @@ INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALU
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',1,10);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Silver',2,50);
 
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (6, '2018-04-01 00:00:00', 2000, 1, 11);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (7, '2018-04-01 00:00:00', 2000, 1, 12);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (8, '2018-04-01 00:00:00', 2000, 1, 13);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (9, '2018-04-01 00:00:00', 2000, 1, 14);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (10, '2018-04-01 00:00:00', 2000, 1, 15);
+
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (11, '2018-03-01 00:00:00', 1000, 1, 11);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (12, '2018-03-01 00:00:00', 1000, 1, 12);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (13, '2018-03-01 00:00:00', 1000, 1, 13);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (14, '2018-03-01 00:00:00', 1000, 1, 14);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (15, '2018-03-01 00:00:00', 1000, 1, 15);
 
 INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 15);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 22);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 21);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 16);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-06-01 00:00:00', 100, 3, 17);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (2, '2018-06-01 00:00:00', 100, 3, 22);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (3, '2018-06-01 00:00:00', 100, 3, 21);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (4, '2018-06-01 00:00:00', 100, 3, 16);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (5, '2018-06-01 00:00:00', 100, 3, 17);
 
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 11);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 12);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 13);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 14);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-04-01 00:00:00', 200, 1, 15);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (16, '2018-05-01 00:00:00', 300, 2, 5);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (17, '2018-05-01 00:00:00', 300, 2, 6);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (18, '2018-05-01 00:00:00', 300, 2, 7);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (19, '2018-05-01 00:00:00', 300, 2, 8);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (20, '2018-05-01 00:00:00', 300, 2, 9);
 
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 5);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 6);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 7);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 8);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-05-01 00:00:00', 300, 2, 9);
-
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 1);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 2);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 3);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 4);
-INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (1, '2018-07-01 00:00:00', 300, 4, 5);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (21, '2018-07-01 00:00:00', 300, 4, 1);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (22, '2018-07-01 00:00:00', 300, 4, 2);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (23, '2018-07-01 00:00:00', 300, 4, 3);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (24, '2018-07-01 00:00:00', 300, 4, 4);
+INSERT INTO `Consumo` (`idConsumo` , `fechaYhora` , `importe` , `idTarjeta` , `idProducto` ) VALUES (25, '2018-07-01 00:00:00', 300, 4, 5);
