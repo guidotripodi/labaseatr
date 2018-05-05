@@ -1,6 +1,7 @@
 SELECT producto.nombre as Atraccion, sum(consumo.importe) as facturacionTotal FROM mydb.Consumo consumo, mydb.Producto producto, mydb.Atraccion atraccion, 
-mydb.Factura factura
+mydb.Factura factura, mydb.Parque parque
 where producto.idProducto = atraccion.idProducto and
+parque.idParque = atraccion.idParque and
 producto.idProducto = consumo.idProducto and 
 factura.idTarjeta = consumo.idTarjeta and
 factura.fechaEmitida > consumo.fechaYhora

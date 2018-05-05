@@ -1,4 +1,4 @@
-SELECT producto.nombre as Parque, sum(consumo.importe) as facturacionTotal FROM mydb.Consumo consumo, mydb.Producto producto, mydb.Atraccion atraccion, 
+SELECT parque.nombre as Parque, sum(consumo.importe) as facturacionTotal FROM mydb.Consumo consumo, mydb.Producto producto, mydb.Atraccion atraccion, 
 mydb.Factura factura, mydb.Parque parque
 where producto.idProducto = atraccion.idProducto and
 parque.idParque = atraccion.idParque and
