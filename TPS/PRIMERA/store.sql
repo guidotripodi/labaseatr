@@ -57,7 +57,7 @@ WHERE
         FROM
             Categoria c
         WHERE
-            c.x <= conAcumAct);
+            c.x <= conAcumAnual);
     
     -- Si el consumo mensual es adecuado para la categoria actual, y la categoria correspondiente no es mayor a la actual, entonces la categoria correspondiente es la actual
     -- En cualquier otro caso, la categoria se resuelve por el parametro x
@@ -66,6 +66,6 @@ WHERE
     
     END IF;
         
-    INSERT INTO PerteneceA VALUES (idTarjeta,catCorresp_nombre, CURDATE());
+    INSERT INTO PerteneceA VALUES (1,catCorresp_nombre, CURDATE());
 
 END
