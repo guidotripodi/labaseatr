@@ -45,11 +45,11 @@ BEGIN
 
         -- Si el consumo mensual es adecuado para la categoria actual, y la categoria correspondiente no es mayor a la actual, entonces la categoria correspondiente es la actual
         -- En cualquier otro caso, la categoria se resuelve por el parametro x
-        IF v_catActual_y <= v_conPromMensual and v_catCorresp_x <= v_catActual_x THEN
-        	SET v_catCorresp_nombre = v_catActual_nombre;
+        IF NOT (v_catActual_y <= v_conPromMensual and v_catCorresp_x <= v_catActual_x )THEN
+        	INSERT INTO PerteneceA VALUES (v_idTarjeta,v_catCorresp_nombre, CURDATE());
         END IF;
 
-        INSERT INTO PerteneceA VALUES (v_idTarjeta,v_catCorresp_nombre, CURDATE());
+        
 
     END LOOP for_each_idTarjeta;
     
