@@ -1,15 +1,4 @@
--- --------------------------------------------------------------------------------
--- Routine DDL
--- Note: comments before and after the routine body will not be stored by the server
--- --------------------------------------------------------------------------------
-use mydb;
-
-DROP PROCEDURE IF EXISTS `cambiarCategorias` ;
-
-DELIMITER $$
-
-
-CREATE PROCEDURE `cambiarCategorias` ()
+CREATE PROCEDURE `cambiarAllCategorias` ()
 BEGIN
 	DECLARE v_finished INTEGER DEFAULT 0;
     DECLARE v_idTarjeta INTEGER DEFAULT 0;
