@@ -5,8 +5,6 @@ INSERT INTO `MedioDePago` (`nombreMedioDePago`) VALUES ('Transferencia');
 INSERT INTO `MedioDePago` (`nombreMedioDePago`) VALUES ('Nota de pago');
 
 
-
-
 INSERT INTO `Cliente` (`idCliente`, `nombre`, `apellido`, `foto`, `domicilioFact`, `nombreMedioDePago`) VALUES (0, 'Lennie', 'Toy', 'http://lorempixel.com/640/480/', '2749 Lela Curve\nNorth Micahmouth, KY 42937', 'Credito');
 INSERT INTO `Cliente` (`idCliente`, `nombre`, `apellido`, `foto`, `domicilioFact`, `nombreMedioDePago`) VALUES (1, 'Jalyn', 'Dibbert', 'http://lorempixel.com/640/480/', '04156 Aufderhar Valleys\nWest Sidneyborough, O', 'Credito');
 INSERT INTO `Cliente` (`idCliente`, `nombre`, `apellido`, `foto`, `domicilioFact`, `nombreMedioDePago`) VALUES (2, 'Felicia', 'OConnell', 'http://lorempixel.com/640/480/', '6917 Feil Shore\nBartolettichester, MA 74286', 'Debito');
@@ -270,8 +268,8 @@ INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '1564-654');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '455241651');
 INSERT INTO `Telefono` (`idCliente`, `numero`) VALUES (9, '54654564');
 
-INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (0, true, 'dummy picture', 1); 
-INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (1, false, 'dummy picture', 1); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (0, false, 'dummy picture', 1); 
+INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (1, true, 'dummy picture', 1); 
 INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (2, true, 'dummy picture', 2); 
 INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (3, false, 'dummy picture', 2); 
 INSERT INTO `Tarjeta` (`idTarjeta` , `activada` , `foto` , `idCliente`) VALUES (4, true, 'dummy picture', 3); 
