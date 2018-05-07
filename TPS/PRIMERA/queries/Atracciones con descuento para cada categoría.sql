@@ -1,3 +1,3 @@
-SELECT nombreCategoria as Categoria , nombre FROM mydb.PoseeDescuento, mydb.Producto , mydb.Atraccion   where
-mydb.PoseeDescuento.idProducto = mydb.Atraccion.idProducto and mydb.Producto.idProducto = mydb.PoseeDescuento.idProducto
-;
+SELECT poseeDesc.nombreCategoria as Categoria, producto.nombre as Atraccion, poseeDesc.descuento as descuento FROM mydb.PoseeDescuento poseeDesc, mydb.Producto producto where 
+producto.idProducto = poseeDesc.idProducto and
+producto.tipoProducto Like "atraccion";
