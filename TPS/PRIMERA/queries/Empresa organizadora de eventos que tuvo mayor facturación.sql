@@ -1,17 +1,31 @@
-SELECT empresa.razonSocial , sum(consumo.importe) as facturacionTotal FROM mydb.Empresa empresa, mydb.Consumo consumo, mydb.Evento evento, mydb.Factura factura
-where evento.idProducto = consumo.idProducto and
-evento.idEmpresa = empresa.idEmpresa and
-factura.idTarjeta = consumo.idTarjeta and
-factura.fechaEmitida > consumo.fechaYhora
-and month(consumo.fechaYhora) >  (month(factura.fechaEmitida) - 1)
-and year(consumo.fechaYhora) = year(consumo.fechaYhora)  
-group by empresa.razonSocial
-having sum(consumo.importe) >= all (Select sum(consumo1.importe) FROM mydb.Empresa empresa1, mydb.Consumo consumo1,
- mydb.Evento evento1, mydb.Factura factura1
-where evento1.idProducto = consumo1.idProducto and
-evento1.idEmpresa = empresa1.idEmpresa and
-factura1.idTarjeta = consumo1.idTarjeta and
-factura1.fechaEmitida > consumo1.fechaYhora
-and month(consumo1.fechaYhora) >  (month(factura1.fechaEmitida) - 1)
-and year(consumo1.fechaYhora) = year(consumo1.fechaYhora) 
-group by empresa1.razonSocial)
+SELECT 
+    empresa.razonSocial,
+    SUM(consumo.importe) AS facturacionTotal
+FROM
+    Empresa empresa,
+    Consumo consumo,
+    mydb.Evento evento,
+    mydb.Factura factura
+WHERE
+    evento.idProducto = consumo.idProducto
+        AND evento.idEmpresa = empresa.idEmpresa
+        AND factura.idTarjeta = consumo.idTarjeta
+        AND factura.fechaEmitida > consumo.fechaYhora
+        AND MONTH(consumo.fechaYhora) > (MONTH(factura.fechaEmitida) - 1)
+        AND YEAR(consumo.fechaYhora) = YEAR(consumo.fechaYhora)
+GROUP BY empresa.razonSocial
+HAVING SUM(consumo.importe) >= ALL (SELECT 
+        SUM(consumo1.importe)
+    FROM
+        Empresa empresa1,
+        Consumo consumo1,
+        Evento evento1,
+        Factura factura1
+    WHERE
+        evento1.idProducto = consumo1.idProducto
+            AND evento1.idEmpresa = empresa1.idEmpresa
+            AND factura1.idTarjeta = consumo1.idTarjeta
+            AND factura1.fechaEmitida > consumo1.fechaYhora
+            AND MONTH(consumo1.fechaYhora) > (MONTH(factura1.fechaEmitida) - 1)
+            AND YEAR(consumo1.fechaYhora) = YEAR(consumo1.fechaYhora)
+    GROUP BY empresa1.razonSocial)

@@ -1,24 +1,54 @@
-SELECT T.nombreCliente, T.apellidoCliente, T.nombreAtraccion, MAX(cantidadVisitado) cantVisitado
+delimiter $
+create procedure atraccionMasVisitadaPorCliente(in fechaDesde datetime, in fechaHasta datetime)
+begin
+SELECT 
+    cliente.nombre AS nombreCliente,
+    cliente.apellido as apellidoCliente,
+    producto.nombre AS nombreAtraccion
 FROM
-( SELECT 
-    c1.idTarjeta,
-    c1.idProducto,
-    cl1.nombre as nombreCliente,
-    cl1.apellido as apellidoCliente,
-    p.nombre AS nombreAtraccion,
-    COUNT(*) AS cantidadVisitado
-FROM
-    mydb.Consumo c1,
-    mydb.Producto p,
-    mydb.Cliente cl1,
-    mydb.Tarjeta t1
+    mydb.Consumo consumo,
+    mydb.Tarjeta tarjeta,
+    mydb.Producto producto,
+    mydb.Cliente cliente
 WHERE
-    p.tipoProducto LIKE 'atraccion'
-        AND cl1.idCliente = t1.idCliente
-        AND c1.idTarjeta = t1.idTarjeta
-        AND p.idProducto = c1.idProducto
-        AND c1.fechaYhora >= '2017-04-01 00:00:00'
-        AND c1.fechaYhora <= '2020-04-01 00:00:00'
-GROUP BY c1.idTarjeta , c1.idProducto) T
- group by T.nombreCliente, T.apellidoCliente, T.nombreAtraccion
- ;
+    producto.tipoProducto LIKE 'atraccion'
+        AND cliente.idCliente = tarjeta.idCliente
+        AND tarjeta.idTarjeta = consumo.idTarjeta
+        AND producto.idProducto = consumo.idProducto
+        AND consumo.fechaYhora >= fechaDesde 
+        AND consumo.fechaYhora <= fechaHasta 
+        AND producto.nombre = (SELECT 
+            producto1.nombre AS Atraccion
+        FROM
+            mydb.Consumo consumo1,
+            mydb.Tarjeta tarjeta1,
+            mydb.Producto producto1,
+            mydb.Cliente cliente1
+        WHERE
+            producto1.tipoProducto LIKE 'atraccion'
+                AND cliente1.idCliente = tarjeta1.idCliente
+                AND tarjeta1.idTarjeta = consumo1.idTarjeta
+                AND producto1.idProducto = consumo1.idProducto
+                AND cliente1.idCliente = cliente.idCliente
+                AND consumo1.fechaYhora >= fechaDesde 
+                AND consumo1.fechaYhora <= fechaHasta 
+        GROUP BY cliente1.nombre , consumo1.idProducto
+        HAVING COUNT(consumo1.idProducto) >= ALL (SELECT 
+                COUNT(consumo.idProducto) AS cantVisit
+            FROM
+                mydb.Consumo consumo,
+                mydb.Tarjeta tarjeta,
+                mydb.Producto producto,
+                mydb.Cliente cliente
+            WHERE
+                producto.tipoProducto LIKE 'atraccion'
+                    AND cliente.idCliente = tarjeta.idCliente
+                    AND tarjeta.idTarjeta = consumo.idTarjeta
+                    AND producto.idProducto = consumo.idProducto
+                    AND consumo.fechaYhora >= fechaDesde 
+                    AND consumo.fechaYhora <= fechaHasta 
+                    AND cliente.idCliente = cliente.idCliente
+            GROUP BY cliente.nombre , consumo.idProducto));
+            
+            end
+$
