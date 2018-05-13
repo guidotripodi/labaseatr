@@ -42,14 +42,14 @@ WHERE
                 mydb.Factura factura,
                 mydb.Producto producto,
                 mydb.Atraccion atraccion,
-                mydb.Parque parque
+                mydb.Parque parque2
             WHERE
                 producto.idProducto = atraccion.idProducto
-                    AND parque.idParque = atraccion.idParque
+                    AND parque2.idParque = atraccion.idParque
                     AND producto.idProducto = consumo.idProducto
                     AND factura.idTarjeta = consumo.idTarjeta
                     AND factura.fechaEmitida > consumo.fechaYhora
                     AND MONTH(consumo.fechaYhora) > (MONTH(factura.fechaEmitida) - 1)
                     AND YEAR(consumo.fechaYhora) = YEAR(consumo.fechaYhora)
-                    AND parque.idParque = parque.idParque
+                    AND parque2.idParque = parque.idParque
             GROUP BY parque.nombre , consumo.idProducto))
