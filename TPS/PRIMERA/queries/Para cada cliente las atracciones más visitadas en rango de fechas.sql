@@ -1,6 +1,4 @@
-delimiter $
-create procedure atraccionMasVisitadaPorCliente(in fechaDesde datetime, in fechaHasta datetime)
-begin
+
 SELECT 
     cliente.nombre AS nombreCliente,
     cliente.apellido as apellidoCliente,
@@ -15,9 +13,7 @@ WHERE
         AND cliente.idCliente = tarjeta.idCliente
         AND tarjeta.idTarjeta = consumo.idTarjeta
         AND producto.idProducto = consumo.idProducto
-        AND consumo.fechaYhora >= fechaDesde 
-        AND consumo.fechaYhora <= fechaHasta 
-        AND producto.nombre = (SELECT 
+		AND producto.nombre = (SELECT 
             producto1.nombre AS Atraccion
         FROM
             mydb.Consumo consumo1,
@@ -30,9 +26,7 @@ WHERE
                 AND tarjeta1.idTarjeta = consumo1.idTarjeta
                 AND producto1.idProducto = consumo1.idProducto
                 AND cliente1.idCliente = cliente.idCliente
-                AND consumo1.fechaYhora >= fechaDesde 
-                AND consumo1.fechaYhora <= fechaHasta 
-        GROUP BY cliente1.nombre , consumo1.idProducto
+		GROUP BY cliente1.nombre , consumo1.idProducto
         HAVING COUNT(consumo1.idProducto) >= ALL (SELECT 
                 COUNT(consumo.idProducto) AS cantVisit
             FROM
@@ -45,10 +39,7 @@ WHERE
                     AND cliente.idCliente = tarjeta.idCliente
                     AND tarjeta.idTarjeta = consumo.idTarjeta
                     AND producto.idProducto = consumo.idProducto
-                    AND consumo.fechaYhora >= fechaDesde 
-                    AND consumo.fechaYhora <= fechaHasta 
                     AND cliente.idCliente = cliente.idCliente
             GROUP BY cliente.nombre , consumo.idProducto));
             
-            end
-$
+      
