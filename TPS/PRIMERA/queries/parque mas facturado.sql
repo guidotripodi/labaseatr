@@ -1,3 +1,4 @@
+use mydb;
 SELECT 
     parque.nombre AS Parque,
     SUM(consumo.importe) AS facturacionTotal

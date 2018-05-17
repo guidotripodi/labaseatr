@@ -52,4 +52,4 @@ WHERE
                     AND MONTH(consumo.fechaYhora) > (MONTH(factura.fechaEmitida) - 1)
                     AND YEAR(consumo.fechaYhora) = YEAR(consumo.fechaYhora)
                     AND parque2.idParque = parque.idParque
-            GROUP BY parque.nombre , consumo.idProducto))
+            GROUP BY parque.nombre , consumo.idProducto))  GROUP BY parque.idParque, producto.idProducto
