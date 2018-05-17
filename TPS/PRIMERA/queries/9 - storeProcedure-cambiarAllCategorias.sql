@@ -1,4 +1,4 @@
-DROP PROCEDURE IF EXISTS `cambiarAllCategorias`
+DROP PROCEDURE IF EXISTS `cambiarAllCategorias`;
 DELIMITER $
 CREATE PROCEDURE `cambiarAllCategorias` ()
 BEGIN
