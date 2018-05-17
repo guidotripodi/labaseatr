@@ -1,4 +1,6 @@
-
+delimiter $
+create procedure atraccionMasVisitadaPorCliente(in fechaDesde datetime, in fechaHasta datetime)
+begin
 SELECT 
     cliente.nombre AS nombreCliente,
     cliente.apellido AS apellidoCliente,
@@ -14,8 +16,6 @@ WHERE
         AND tarjeta.idTarjeta = consumo.idTarjeta
         AND producto.idProducto = consumo.idProducto
         AND producto.idProducto IN (
-        
-        
         SELECT 
             producto1.idProducto AS AtraccionesDeMaximasVisitasXCliente
         FROM
@@ -28,7 +28,9 @@ WHERE
                 AND cliente1.idCliente = tarjeta1.idCliente
                 AND tarjeta1.idTarjeta = consumo1.idTarjeta
                 AND producto1.idProducto = consumo1.idProducto
-                AND cliente1.idCliente = cliente.idCliente
+                AND consumo1.fechaYhora >= fechaDesde 
+                AND consumo1.fechaYhora <= fechaHasta 
+             AND cliente1.idCliente = cliente.idCliente
         GROUP BY cliente1.nombre , consumo1.idProducto
         HAVING COUNT(consumo1.idProducto) >= ALL (SELECT 
                 COUNT(consumo2.idProducto) AS cantidadVisitasAtraccionXCliente
@@ -46,6 +48,7 @@ WHERE
             GROUP BY cliente2.idCliente , consumo2.idProducto)
             
             
-            ) GROUP BY cliente.idCliente, producto.idProducto
+            ) GROUP BY cliente.idCliente, producto.idProducto;
             
-      
+            end
+$
