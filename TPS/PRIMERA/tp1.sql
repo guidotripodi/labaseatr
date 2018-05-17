@@ -247,7 +247,6 @@ DROP TABLE IF EXISTS `mydb`.`Evento` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Evento` (
   `idProducto` INT NOT NULL,
-  `nombre` VARCHAR(45) NULL,
   `fechaDesde` DATETIME NULL,
   `fechaHasta` DATETIME NULL,
   `idEmpresa` INT NOT NULL,

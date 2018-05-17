@@ -1,3 +1,4 @@
+drop procedure if exists `atraccionMayorVisita`;
 delimiter $
 create procedure atraccionMayorVisita(in fechaInicio datetime, in fechaFin datetime)
 begin
