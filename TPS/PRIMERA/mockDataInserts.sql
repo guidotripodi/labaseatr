@@ -374,13 +374,13 @@ INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (
 INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (4, 'Silver','2017-12-30 00:00:00');
 INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (0, 'Silver','2017-12-30 00:00:00');
 
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (1,'2018-03-01 00:00:00','2018-04-25 00:00:00',1,1);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (2,'2018-04-01 00:00:00','2018-04-25 00:00:00',1,1);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (3,'2018-05-25 00:00:00','2018-05-05 00:00:00',2,2);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (4,'2018-06-20 00:00:00','2018-04-28 00:00:00',3,3);
-INSERT INTO `Factura` (`idFactura`, `fechaEmitida`, `fechaVencimiento`, `numero`, `idTarjeta`) VALUES (5,'2018-07-02 00:00:00','2018-04-22 00:00:00',4,4);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (1,'2018-03-01 00:00:00','2018-04-25 00:00:00',1);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (2,'2018-04-01 00:00:00','2018-04-25 00:00:00',1);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (3,'2018-05-25 00:00:00','2018-05-05 00:00:00',2);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (4,'2018-06-20 00:00:00','2018-04-28 00:00:00',3);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (5,'2018-07-02 00:00:00','2018-04-22 00:00:00',4);
 
-INSERT INTO `Recibo` (`fecha`, `idFactura`) VALUES ('2018-04-25 00:00:00',1);
+INSERT INTO `Recibo` (`fecha`, `numero`) VALUES ('2018-04-25 00:00:00',1);
 
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',1,50);
 INSERT INTO `PoseeDescuento` (`nombreCategoria`, `idProducto`, `descuento`) VALUES ('Black',2,50);
