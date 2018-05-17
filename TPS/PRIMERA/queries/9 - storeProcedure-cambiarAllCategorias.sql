@@ -1,3 +1,5 @@
+DROP PROCEDURE IF EXISTS `cambiarAllCategorias`
+DELIMITER $
 CREATE PROCEDURE `cambiarAllCategorias` ()
 BEGIN
 	DECLARE v_finished INTEGER DEFAULT 0;
