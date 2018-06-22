@@ -10,7 +10,7 @@ def nmlz(text):
   return text[0:t-1]
 
 cnx = mysql.connector.connect(user='root',
-                              password='Esteban1990',
+                              password='',
                               host='127.0.0.1',
                               database='mydb')
 
