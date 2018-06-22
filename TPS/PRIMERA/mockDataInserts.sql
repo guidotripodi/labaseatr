@@ -376,7 +376,7 @@ INSERT INTO `PerteneceA` (`idTarjeta`, `nombreCategoria`, `fechaDesde`) VALUES (
 
 INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (1,'2018-03-01 00:00:00','2018-04-25 00:00:00',1);
 INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (2,'2018-04-01 00:00:00','2018-04-25 00:00:00',1);
-INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (3,'2018-05-25 00:00:00','2018-05-05 00:00:00',2);
+INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (3,'2018-05-04 00:00:00','2018-05-05 00:00:00',2);
 INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (4,'2018-06-20 00:00:00','2018-04-28 00:00:00',3);
 INSERT INTO `Factura` (`numero`, `fechaEmitida`, `fechaVencimiento`, `idTarjeta`) VALUES (5,'2018-07-02 00:00:00','2018-04-22 00:00:00',4);
 
