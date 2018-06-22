@@ -1,4 +1,7 @@
 import mysql.connector
+import json
+import datetime
+import rethinkdb as reth
 
 def nmlz(text):
   t = 30
@@ -10,14 +13,14 @@ def nmlz(text):
   return text[0:t-1]
 
 cnx = mysql.connector.connect(user='root',
-                              password='',
+                              password='35122473',
                               host='127.0.0.1',
                               database='mydb')
 
 cursor = cnx.cursor()
 
-queryTarjetaYAtracciones = "SELECT t.idTarjeta, c.nombre, c.apellido, pa.nombreCategoria, p.idProducto, p.nombre as pn, p.tipoProducto, pq.nombre as nombreComp, pq.idParque as idComp  FROM Tarjeta t, Cliente c, PerteneceA pa, DaAcceso da, Producto p, Atraccion at, Parque pq WHERE t.idCliente=c.idCliente AND t.activada=true AND t.idTarjeta=pa.idTarjeta AND pa.fechaDesde = (SELECT MAX(fechaDesde) FROM PerteneceA pa2 WHERE pa2.idTarjeta = t.idTarjeta) AND da.idTarjeta=t.idTarjeta AND da.idProducto=p.idProducto AND p.idProducto=at.idProducto AND at.idParque = pq.idParque"
-queryTarjetaYEventos = "SELECT t.idTarjeta, c.nombre, c.apellido, pa.nombreCategoria, p.idProducto, p.nombre as pn, p.tipoProducto, em.razonSocial as nombreComp, em.idEmpresa as idComp FROM Tarjeta t, Cliente c, PerteneceA pa, DaAcceso da, Producto p, Evento ev, Empresa em WHERE t.idCliente=c.idCliente AND t.activada=true AND t.idTarjeta=pa.idTarjeta AND pa.fechaDesde = (SELECT MAX(fechaDesde) FROM PerteneceA pa2 WHERE pa2.idTarjeta = t.idTarjeta) AND da.idTarjeta=t.idTarjeta AND da.idProducto=p.idProducto AND p.idProducto=ev.idProducto AND ev.idEmpresa = em.idEmpresa"
+queryTarjetaYAtracciones = "SELECT t.idTarjeta, c.nombre, c.apellido, pa.nombreCategoria, p.idProducto, p.nombre as pn, p.tipoProducto, pq.nombre as nombreComp, pq.idParque as idComp, c.idCliente  FROM Tarjeta t, Cliente c, PerteneceA pa, DaAcceso da, Producto p, Atraccion at, Parque pq WHERE t.idCliente=c.idCliente AND t.activada=true AND t.idTarjeta=pa.idTarjeta AND pa.fechaDesde = (SELECT MAX(fechaDesde) FROM PerteneceA pa2 WHERE pa2.idTarjeta = t.idTarjeta) AND da.idTarjeta=t.idTarjeta AND da.idProducto=p.idProducto AND p.idProducto=at.idProducto AND at.idParque = pq.idParque"
+queryTarjetaYEventos = "SELECT t.idTarjeta, c.nombre, c.apellido, pa.nombreCategoria, p.idProducto, p.nombre as pn, p.tipoProducto, em.razonSocial as nombreComp, em.idEmpresa as idComp, c.idCliente FROM Tarjeta t, Cliente c, PerteneceA pa, DaAcceso da, Producto p, Evento ev, Empresa em WHERE t.idCliente=c.idCliente AND t.activada=true AND t.idTarjeta=pa.idTarjeta AND pa.fechaDesde = (SELECT MAX(fechaDesde) FROM PerteneceA pa2 WHERE pa2.idTarjeta = t.idTarjeta) AND da.idTarjeta=t.idTarjeta AND da.idProducto=p.idProducto AND p.idProducto=ev.idProducto AND ev.idEmpresa = em.idEmpresa"
 queryTarjetaYProductos = ("SELECT * FROM ( ("+queryTarjetaYAtracciones+") UNION ("+queryTarjetaYEventos+") ) a  ORDER BY idTarjeta, idProducto")
 
 idProductosXidTarjetas = {}
@@ -76,3 +79,25 @@ nomProd = idProductosXidTarjetas[tarjeta][producto][5]
 nomComercio = idProductosXidTarjetas[tarjeta][producto][7]
 
 print "La tarjeta "+str(tarjeta)+" consumira el producto '"+nomProd+"' pagando $"+str(diaYPrecio[dDay])+" a '"+nomComercio+"'"
+
+
+idCliente = idProductosXidTarjetas[tarjeta][producto][9]
+tipo = idProductosXidTarjetas[tarjeta][producto][6]
+compania = idProductosXidTarjetas[tarjeta][producto][8]
+consumo = {}
+hoy = datetime.date.today().isoformat()
+if tipo == 'evento':
+	consumo = {'importe':diaYPrecio[dDay],'fechaHora': hoy,'tarjeta':{'idCliente': idCliente, 'numero': tarjeta},'producto':{'tipo': tipo, 'empresa':compania, 'idProducto': producto, 'nombre': nomProd}}
+else:
+	consumo = {'importe':diaYPrecio[dDay],'fechaHora': hoy,'tarjeta':{'idCliente': idCliente, 'numero': tarjeta},'producto':{'tipo': tipo, 'parque':compania, 'idProducto': producto, 'nombre': nomProd}}
+
+print json.dumps(consumo,indent=4)
+
+conn = reth.connect(db='tp2')
+
+reth.table("consumos").insert(
+   consumo,
+    conflict="replace"
+).run(conn)
+
+conn.close()
