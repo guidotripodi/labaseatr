@@ -1,0 +1,59 @@
+2018-06-20T18:43:05.915876225 0.311184s notice: Recursively removing directory /home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data/tmp
+2018-06-20T18:43:05.939729432 0.335036s notice: Initializing directory /home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data
+2018-06-20T18:43:05.939840946 0.335147s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data' did not already exist or is empty.)
+2018-06-20T18:43:05.939888470 0.335195s notice: Running rethinkdb 2.3.6~0xenial (GCC 5.3.1)...
+2018-06-20T18:43:05.953723579 0.349033s notice: Running on Linux 4.13.0-45-generic x86_64
+2018-06-20T18:43:05.953780557 0.349087s notice: Loading data from directory /home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data
+2018-06-20T18:43:06.322242654 0.717549s info: Automatically using cache size of 182 MB
+2018-06-20T18:43:06.344730505 0.740037s notice: Listening for intracluster connections on port 29015
+2018-06-20T18:43:06.387102426 0.782409s notice: Listening for client driver connections on port 28015
+2018-06-20T18:43:06.387265389 0.782572s notice: Listening for administrative HTTP connections on port 8080
+2018-06-20T18:43:06.387266805 0.782573s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-20T18:43:06.387270079 0.782576s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-20T18:43:06.387273461 0.782580s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-20T18:43:06.387278641 0.782585s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-06-20T18:43:06.387283838 0.782590s notice: Server ready, "guidotripodi_Lenovo_ideapad_110_15ISK_e1m" 43f435b2-e397-42c5-9c97-253d556122fd
+2018-06-22T10:18:39.320448523 28741.526159s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2018-06-22T15:10:39.137077240 46260.898364s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2018-06-22T17:56:50.067662358 54058.987493s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2018-06-22T17:56:50.247377794 54059.167209s notice: Shutting down client connections...
+2018-06-22T17:56:50.260775724 54059.180606s notice: All client connections closed.
+2018-06-22T17:56:50.260781831 54059.180612s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2018-06-22T17:56:50.929101752 54059.848934s notice: Storage engine shut down.
+2018-06-22T18:06:50.881181542 0.238353s notice: Running rethinkdb 2.3.6~0xenial (GCC 5.3.1)...
+2018-06-22T18:06:50.883542824 0.240717s notice: Running on Linux 4.13.0-45-generic x86_64
+2018-06-22T18:06:50.883596678 0.240768s notice: Loading data from directory /home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data
+2018-06-22T18:06:51.275298548 0.632470s info: Automatically using cache size of 207 MB
+2018-06-22T18:06:51.284626615 0.641798s notice: Listening for intracluster connections on port 29015
+2018-06-22T18:06:51.317221216 0.674393s notice: Listening for client driver connections on port 28015
+2018-06-22T18:06:51.317389565 0.674561s notice: Listening for administrative HTTP connections on port 8080
+2018-06-22T18:06:51.317392887 0.674564s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-22T18:06:51.317395969 0.674567s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-22T18:06:51.317401391 0.674573s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-22T18:06:51.317404136 0.674576s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-06-22T18:06:51.317406620 0.674578s notice: Server ready, "guidotripodi_Lenovo_ideapad_110_15ISK_e1m" 43f435b2-e397-42c5-9c97-253d556122fd
+2018-06-22T18:49:18.092563984 2547.449736s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: Added replica on this server.
+2018-06-22T18:49:18.092647985 2547.449820s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: Starting a new Raft election for term 1.
+2018-06-22T18:49:18.569889196 2547.927061s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: This server is Raft leader for term 1. Latest log index is 0.
+2018-06-22T18:49:53.347693560 2582.704866s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: Configuration is changing.
+2018-06-23T01:38:48.339011891 18900.727010s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2018-06-23T16:15:36.573388842 24746.880721s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2018-06-23T16:15:36.609393428 24746.916726s notice: Shutting down client connections...
+2018-06-23T16:15:36.625777514 24746.933110s notice: All client connections closed.
+2018-06-23T16:15:36.625831949 24746.933163s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2018-06-23T16:15:37.327637924 24747.634970s notice: Storage engine shut down.
+2018-06-23T16:15:42.350405905 0.205290s notice: Running rethinkdb 2.3.6~0xenial (GCC 5.3.1)...
+2018-06-23T16:15:42.424059107 0.278952s notice: Running on Linux 4.13.0-45-generic x86_64
+2018-06-23T16:15:42.424242445 0.279126s notice: Loading data from directory /home/guidotripodi/Documentos/FACU/BASES/labaseatr/rethinkdb_data
+2018-06-23T16:15:42.575333820 0.430218s info: Automatically using cache size of 554 MB
+2018-06-23T16:15:42.577519010 0.432403s notice: Listening for intracluster connections on port 29015
+2018-06-23T16:15:42.713248028 0.568132s notice: Listening for client driver connections on port 28015
+2018-06-23T16:15:42.713390684 0.568274s notice: Listening for administrative HTTP connections on port 8080
+2018-06-23T16:15:42.713394854 0.568278s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-23T16:15:42.713398661 0.568282s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-23T16:15:42.713416364 0.568300s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2018-06-23T16:15:42.713420636 0.568304s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-06-23T16:15:42.713424756 0.568308s notice: Server ready, "guidotripodi_Lenovo_ideapad_110_15ISK_e1m" 43f435b2-e397-42c5-9c97-253d556122fd
+2018-06-23T16:15:44.243832720 2.098717s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: Starting a new Raft election for term 2.
+2018-06-23T16:15:44.295674702 2.150559s info: Table 705f6756-f038-4289-aa82-f5484465e3a2: This server is Raft leader for term 2. Latest log index is 3.
+2018-06-24T10:53:46.452704393 42660.835552s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
