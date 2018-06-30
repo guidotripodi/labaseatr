@@ -10,9 +10,9 @@ fake.seed(4321)
 #print fake.integer()
 
 conn = reth.connect(db='tp2')
-def insertarEmpresas():
+def insertarEmpresas(cantEmpresas):
 	i = 0
-	while i < 10:
+	while i < cantEmpresas:
 		empresa = {"empresaId": i, "pais": fake.country(),"provincia": fake.city(),"direccion": fake.address(),"razonSocial": fake.company()}
 		reth.table("Empresa").insert(
 		   empresa,
@@ -26,12 +26,12 @@ def insertarCategorias():
 
 categorias = ['Comun','Silver','Gold','Black']
 
-def insertarProducto(compania, desde, hasta, cantCompanias):	 
+def insertarProductoEvento(compania, desde, hasta, cantCompanias):	 
 	i = desde
 	j = 0
 	categorias = ['Comun','Silver','Gold','Black']
 	while i < hasta:
-		evento = {"id": i, compania: random.randint(0,cantCompanias),
+		evento = {"id": i,"tipo": "evento",compania: random.randint(0,cantCompanias),
             "nombre": fake.name(),
             "categoriasDescuentos": [{"nombreCategoria":random.choice(categorias),"descuento":80.00 }],
 			"precios": [{"dia":"L","valor":20.00},{"dia":"M","valor":50.00},{"dia":"X","valor":10.00},{"dia":"J","valor":100.00},{"dia":"V","valor":200.00},{"dia":"S","valor":250.00},{"dia":"D","valor":500.00}]
@@ -43,7 +43,23 @@ def insertarProducto(compania, desde, hasta, cantCompanias):
 		).run(conn)
 		i += 1  
 
-#insertarProducto("empresa", 0 ,20, 9)
+
+def insertarProductoAtraccion(parque, desde, hasta, cantParques):	 
+	i = desde
+	j = 0
+	categorias = ['Comun','Silver','Gold','Black']
+	while i < hasta:
+		atraccion = {"id": i,"tipo": "atraccion",parque: random.randint(0,cantParques),
+            "nombre": fake.name(),
+            "categoriasDescuentos": [{"nombreCategoria":random.choice(categorias),"descuento":80.00 }],
+			"precios": [{"dia":"L","valor":20.00},{"dia":"M","valor":50.00},{"dia":"X","valor":10.00},{"dia":"J","valor":100.00},{"dia":"V","valor":200.00},{"dia":"S","valor":250.00},{"dia":"D","valor":500.00}]
+			,"edadDesde":"2","edadHasta":"1000","fechaDesde":fake.date()+fake.time(),"fechaHasta":fake.date()+fake.time()}
+ 
+		reth.table("Producto").insert(
+		   atraccion,
+		    conflict="replace"
+		).run(conn)
+		i += 1  
 
 
 def insertarParque(prodId):	  
@@ -64,8 +80,6 @@ def insertarParque(prodId):
 		i += 1  
 
 
-#insertarProducto("parque", 20, 40, 9)
-#insertarParque(20)
 
 
 def insertarCliente(cantCliente):	  
@@ -81,7 +95,6 @@ def insertarCliente(cantCliente):
          "telefonos":[{"numero": fake.phone_number()}]}
 		reth.table("Parque").insert(parque,conflict="replace").run(conn)
 		i += 1  
-#insertarProducto("parque", 20, 40, 9)
 
 def insertarTarjeta(cantTarjeta):
 	productos = reth.table("Producto").run(conn)
@@ -113,7 +126,6 @@ def insertarFactura(cantFactura):
 		i += 1  
 
 
-#insertarFactura(20)
 
 
 
@@ -136,6 +148,7 @@ def insertarConsumo(cantConsumo):
                 "categoria":tarjeta['categoria']
              },
         "producto":{
+        		"tipo": producto['tipo'],
                 compania:producto[compania],
                 "idProducto":producto['id'],
                 "nombre":producto['nombre']
@@ -144,7 +157,13 @@ def insertarConsumo(cantConsumo):
 		reth.table("Consumo").insert(Consumo,conflict="replace").run(conn)
 		i += 1  
 
-
+insertarEmpresas(10)
+insertarParque(20)
+insertarCliente(20)
+insertarCategorias()
+insertarProductoEvento("empresa", 0 ,20, 9)
+insertarProductoAtraccion("parque", 20 ,40, 9)
+insertarFactura(20)
 insertarTarjeta(20)
 insertarConsumo(20)
 conn.close()
