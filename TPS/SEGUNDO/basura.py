@@ -6,12 +6,8 @@ import time
 fake = Faker()
 fake.seed(4321)
 
-#print fake.name()
-#print fake.name()
-#print fake.date(),fake.time() 
-#print fake.integer()
-
 conn = reth.connect(db='tp2')
+
 def insertarEmpresas(cantEmpresas):
 	i = 0
 	while i < cantEmpresas:
@@ -173,16 +169,23 @@ def insertarConsumo(cantConsumo):
 			sys.stdout.flush() 
 			batchArray = []
 
-
-# insertarEmpresas(10)
-# insertarParque(20)
-# insertarCliente(20)
-# insertarCategorias()
-# insertarProductoEvento("empresa", 0 ,20, 9)
-# insertarProductoAtraccion("parque", 20 ,40, 9)
-# insertarFactura(20)
-# insertarTarjeta(20)
-insertarConsumo(40000)
+reth.table_create("Empresa").run(conn)
+reth.table_create("Categoria").run(conn)
+reth.table_create("Producto").run(conn)
+reth.table_create("Parque").run(conn)
+reth.table_create("Cliente").run(conn)
+reth.table_create("Tarjeta").run(conn)
+reth.table_create("Factura").run(conn)
+reth.table_create("Consumo").run(conn)
+insertarEmpresas(10)
+insertarParque(20)
+insertarCliente(20)
+insertarCategorias()
+insertarProductoEvento("empresa", 0 ,20, 9)
+insertarProductoAtraccion("parque", 20 ,40, 9)
+insertarFactura(20)
+insertarTarjeta(20)
+insertarConsumo(1000)
 conn.close()
 
 #Para crear shards hay que tener mas servers de rethink andando: hay que usar la siguiente instruccion variando el --port-offset 1 y --directory rethinkdb_data2
