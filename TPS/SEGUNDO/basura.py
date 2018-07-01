@@ -93,7 +93,7 @@ def insertarCliente(cantCliente):
         "nombreMedioPago":"Tarjeta",
         "tarjetas":[{"numero": i}],
          "telefonos":[{"numero": fake.phone_number()}]}
-		reth.table("Parque").insert(parque,conflict="replace").run(conn)
+		reth.table("Cliente").insert(parque,conflict="replace").run(conn)
 		i += 1  
 
 def insertarTarjeta(cantTarjeta):
