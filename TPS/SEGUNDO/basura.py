@@ -165,7 +165,7 @@ insertarProductoEvento("empresa", 0 ,20, 9)
 insertarProductoAtraccion("parque", 20 ,40, 9)
 insertarFactura(20)
 insertarTarjeta(20)
-insertarConsumo(20)
+insertarConsumo(40)
 conn.close()
 #consumo = {"idConsumo": i, 'importe':fake.number(),'fechaHora': fake.date(),fake.time() ,'tarjeta':{'idCliente': j, 'numero': tarjeta},'producto':{'tipo': tipo, 'empresa':compania, 'idProducto': producto, 'nombre': nomProd}}
 #consumo = {'importe':diaYPrecio[dDay],'fechaHora': hoy,'tarjeta':{'idCliente': idCliente, 'numero': tarjeta},'producto':{'tipo': tipo, 'parque':compania, 'idProducto': producto, 'nombre': nomProd}}
