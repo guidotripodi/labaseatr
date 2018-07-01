@@ -1,6 +1,8 @@
 import rethinkdb as reth
 from faker import Faker
 import random
+import sys
+import time
 fake = Faker()
 fake.seed(4321)
 
@@ -133,9 +135,15 @@ def insertarConsumo(cantConsumo):
 	i = 0
 	tarjetas = reth.table("Tarjeta").run(conn)
 	productos = reth.table("Producto").run(conn)
+
+	tarjetasSet = [a for a in tarjetas]
+	productosSet = [a for a in productos]
+	batch = 500
+	batchArray=[]
+	saved = 0
 	while i<cantConsumo:
-		tarjeta = tarjetas.next()
-		producto = productos.next()
+		tarjeta = random.choice(tarjetasSet)
+		producto = random.choice(productosSet)
 		compania = 'parque'
 		if 'empresa' in producto:
 			compania = 'empresa'
@@ -154,18 +162,29 @@ def insertarConsumo(cantConsumo):
                 "nombre":producto['nombre']
             },
         "facturaId":i}
-		reth.table("Consumo").insert(Consumo,conflict="replace").run(conn)
-		i += 1  
 
-insertarEmpresas(10)
-insertarParque(20)
-insertarCliente(20)
-insertarCategorias()
-insertarProductoEvento("empresa", 0 ,20, 9)
-insertarProductoAtraccion("parque", 20 ,40, 9)
-insertarFactura(20)
-insertarTarjeta(20)
-insertarConsumo(40)
+		batchArray.append(Consumo)
+		i += 1  
+		if len(batchArray) > batch:
+			reth.table("Consumo").insert(batchArray,conflict="replace").run(conn)
+			saved+=500
+		
+			sys.stdout.write("\rSaved: %d of %d ( %d percent) " % ( saved ,cantConsumo, float(saved)/float(cantConsumo) * 100))
+			sys.stdout.flush() 
+			batchArray = []
+
+
+# insertarEmpresas(10)
+# insertarParque(20)
+# insertarCliente(20)
+# insertarCategorias()
+# insertarProductoEvento("empresa", 0 ,20, 9)
+# insertarProductoAtraccion("parque", 20 ,40, 9)
+# insertarFactura(20)
+# insertarTarjeta(20)
+insertarConsumo(40000)
 conn.close()
-#consumo = {"idConsumo": i, 'importe':fake.number(),'fechaHora': fake.date(),fake.time() ,'tarjeta':{'idCliente': j, 'numero': tarjeta},'producto':{'tipo': tipo, 'empresa':compania, 'idProducto': producto, 'nombre': nomProd}}
-#consumo = {'importe':diaYPrecio[dDay],'fechaHora': hoy,'tarjeta':{'idCliente': idCliente, 'numero': tarjeta},'producto':{'tipo': tipo, 'parque':compania, 'idProducto': producto, 'nombre': nomProd}}
+
+#Para crear shards hay que tener mas servers de rethink andando: hay que usar la siguiente instruccion variando el --port-offset 1 y --directory rethinkdb_data2
+#rethinkdb --port-offset 1 --directory rethinkdb_data2 --join localhost:29015
+#Una vez corriendo, en el Browser le pedis para la tabla consumo mas replicas
