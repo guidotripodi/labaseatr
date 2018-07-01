@@ -187,4 +187,4 @@ conn.close()
 
 #Para crear shards hay que tener mas servers de rethink andando: hay que usar la siguiente instruccion variando el --port-offset 1 y --directory rethinkdb_data2
 #rethinkdb --port-offset 1 --directory rethinkdb_data2 --join localhost:29015
-#Una vez corriendo, en el Browser le pedis para la tabla consumo mas replicas
+#Una vez corriendo, en el Browser le pedis para la tabla consumo mas shards
