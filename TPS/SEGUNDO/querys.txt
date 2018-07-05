@@ -1,48 +1,60 @@
 Lista de atracciones visitadas por un cliente dado
 
 r.db('tp2').table('Consumo')
-.filter({tarjeta: {"idCliente": 1}})
-.filter({producto: {"tipo": "atraccion"}})
+.filter({tarjeta: {"idCliente": 1}, producto: {"tipo": "atraccion"}})
   
 
 Para un parque dado el ranking de atracciones por cantidad de visitas.
 
 r.db('tp2').table('Consumo')
-.filter({"producto": {"parque": 1, "tipo":  "atraccion"}})
-.group("producto")
-.count()
+.filter({"producto": {"parque": 2}})
+  .group("producto")
+  .count()
+  .ungroup()
+  .orderBy(r.desc("reduction"))
+  .map(function(consumoR){
+  		return {"producto":consumoR('group'),"visitas":consumoR('reduction')}
+  })
+
 
 
 Top 5 de Eventos con mayor facturación
 
 r.db('tp2').table('Consumo')
 .filter({"producto": {"tipo":  "evento"}})
-.orderBy("importe")
-.limit(5)
 .group("producto")
-
+.sum("importe")
+.ungroup()
+.orderBy(r.desc("reduction"))
+.map(function(consumo){
+	return {"producto":consumo('group'),"facturacion":consumo('reduction')}
+})
+.limit(5)
 
 Total de importes por atracción en un parque dado.
 
 r.db('tp2').table('Consumo')
-.filter({"producto": {"parque": 1, "tipo":  "atraccion"}})
+.filter({"producto": {"parque": 5}})
 .group("producto")
 .sum("importe")
+.ungroup()
+.map(function(consumo){
+	return {"producto":consumo('group'),"sumasImportes":consumo('reduction')}
+})
  
 Seleccionar una de las consultas e implementarla además utilizando Map-Reduce 
 
-
 r.db('tp2').table('Consumo')
-.hasFields({'producto':'parque'})
-.map(function(consumo){
-  return {'parque':consumo("producto")("parque"), 'count':1}
- })
-.group('parque')
-.reduce(function(left, right){
-  return {'parque': left('parque'),'count':left('count').add(right('count'))}
-})
-.ungroup()
-.orderBy(r.desc(function(e){return e('reduction')('count')}))
-
-
-
+  .filter({'producto':{'parque':2}})
+  .map(function(consumo){
+  	return {'producto':consumo('producto'),'visitas':1}
+  })
+  .group('producto')
+  .reduce(function(left, right){
+  	return {'visitas':left('visitas').add(right('visitas'))}
+  })
+  .ungroup()
+  .map(function(o){
+  	return {"producto":o("group"),"visitas":o("reduction")("visitas")}
+  })
+  .orderBy(r.desc("visitas"))

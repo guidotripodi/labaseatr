@@ -6,6 +6,12 @@ import time
 fake = Faker()
 fake.seed(4321)
 
+print "Connecting to RethinkDB..."
+conn = reth.connect()
+print "Creating 'tp2' DB..."
+base = reth.db_create('tp2').run(conn)
+conn.close()
+print "Connecting to 'tp2' DB..."
 conn = reth.connect(db='tp2')
 
 def insertarEmpresas(cantEmpresas):
@@ -161,32 +167,53 @@ def insertarConsumo(cantConsumo):
 
 		batchArray.append(Consumo)
 		i += 1  
-		if len(batchArray) > batch:
+		if len(batchArray) > batch or i == cantConsumo:
 			reth.table("Consumo").insert(batchArray,conflict="replace").run(conn)
 			saved+=500
 		
-			sys.stdout.write("\rSaved: %d of %d ( %d percent) " % ( saved ,cantConsumo, float(saved)/float(cantConsumo) * 100))
+			sys.stdout.write("\r\t\tSaved: %d of %d ( %d percent) " % ( saved ,cantConsumo, float(saved)/float(cantConsumo) * 100))
 			sys.stdout.flush() 
 			batchArray = []
 
+print "Creating tables..."
+print "\tEmpresa"
 reth.table_create("Empresa").run(conn)
+print "\tCategoria"
 reth.table_create("Categoria").run(conn)
+print "\tProducto"
 reth.table_create("Producto").run(conn)
+print "\tParque"
 reth.table_create("Parque").run(conn)
+print "\tCliente"
 reth.table_create("Cliente").run(conn)
+print "\tTarjeta"
 reth.table_create("Tarjeta").run(conn)
+print "\tFactura"
 reth.table_create("Factura").run(conn)
+print "\tConsumo"
 reth.table_create("Consumo").run(conn)
+
+print "Creating documents..."
+print "\tempresas"
 insertarEmpresas(10)
+print "\tparques"
 insertarParque(20)
+print "\tclientes"
 insertarCliente(20)
+print "\tcategorias"
 insertarCategorias()
+print "\teventos"
 insertarProductoEvento("empresa", 0 ,20, 9)
+print "\tatracciones"
 insertarProductoAtraccion("parque", 20 ,40, 9)
+print "\tfacturas"
 insertarFactura(20)
+print "\ttarjetas"
 insertarTarjeta(20)
+print "\tconsumos"
 insertarConsumo(1000)
 conn.close()
+print "\nEnd of script"
 
 #Para crear shards hay que tener mas servers de rethink andando: hay que usar la siguiente instruccion variando el --port-offset 1 y --directory rethinkdb_data2
 #rethinkdb --port-offset 1 --directory rethinkdb_data2 --join localhost:29015
